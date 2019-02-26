@@ -1,4 +1,7 @@
 module.exports = () => {
+  // Create an element to append to the document
+  const cplElement = document.createElement("div");
+
   // Set the element's style with JS so we don't need to include a stylesheet
   // Let's make a style object to keeps styling managable
   const cplBoxStyle = {
@@ -45,8 +48,6 @@ module.exports = () => {
   // Append the styleElement to the head tag
   document.head.appendChild(styleElem);
 
-  // Create an element to append to the document
-  const cplElement = document.createElement("div");
   // Setting content, but this isn't necessary
   cplElement.textContent = "CPL";
   // Append element to body

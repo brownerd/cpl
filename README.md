@@ -3,7 +3,7 @@
 This is a simple app that counts the amount of characters that are selected when you click and drag to select text. This is great for being able to count the amount of characters in a line if you are into that type of control over the typography in your web page. 
 
 
-## Isntall
+## Install
 ```
 npm i rdmkit-cpl --save-dev
 ```
