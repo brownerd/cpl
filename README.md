@@ -13,7 +13,7 @@ Use your mouse to select text and get a read-out of the number of characters you
 
 ### Example output
 
-
+![CPL example](https://github.com/brownerd/cpl/blob/master/example.png?raw=true "MZR example")
 
 This is intended to be used for development purposes during the "design-to-code" phase.
 
