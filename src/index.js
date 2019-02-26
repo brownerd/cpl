@@ -1,6 +1,8 @@
 module.exports = () => {
   // Create an element to append to the document
   const cplElement = document.createElement("div");
+  const head = document.head;
+  const body = document.body;
 
   // Set the element's style with JS so we don't need to include a stylesheet
   // Let's make a style object to keeps styling managable
@@ -46,12 +48,26 @@ module.exports = () => {
   // Append that textNode to the styleElement
   styleElem.appendChild(styleNode);
   // Append the styleElement to the head tag
-  document.head.appendChild(styleElem);
+
+  // Im not sure when there wouldn't be a head tag
+  // but I am getting occasional null errors on sites with modal windows
+  if (!head) {
+    return;
+  } else {
+    head.appendChild(styleElem);
+  }
 
   // Setting content, but this isn't necessary
   cplElement.textContent = "CPL";
   // Append element to body
+
+  // Im not sure when there wouldn't be a body tag
+  // but I am getting occasional null errors on sites with modal windows
+  // if (!body) {
+  //   return;
+  // } else {
   document.body.appendChild(cplElement);
+  // }
 
   // Set up a listener to listen for the "selectionchange" event
   // this fires when you used the mouse/trackpad to select text in the webpage
