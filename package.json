@@ -1,12 +1,14 @@
 {
   "name": "rdmkit-cpl",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "CPL counts and displays the number of characters selected when you click and drag to select text in the browser. If you are into web typography, use this to calculate the characters-per-line easily.",
   "main": "dist/index.js",
   "scripts": {
     "prebuild": "rm -rf dist",
     "build": "parcel build src/index.js -d dist/ -o index.js",
     "dev": "parcel src/index.html --open 'google chrome canary'",
+    "predist": "rm -rf dist",
+    "dist:js": "terser ./src/index.js --compress --mangle --output ./dist/index.js",
     "icon": "cp ./src/icons/* ./dist"
   },
   "keywords": [],
