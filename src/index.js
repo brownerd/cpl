@@ -126,7 +126,10 @@ module.exports = () => {
 
     // Now we need to walk up the DOM and sum all the spacing
     // responsible for effecting the positioning of our selected element
-    while (element.tagName != "BODY") {
+
+    // while (element.tagName != "BODY") {
+
+    while (element) {
       xPosition += element.offsetLeft + element.clientLeft;
       yPosition += element.offsetTop + element.clientTop;
 
