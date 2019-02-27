@@ -79,9 +79,8 @@ module.exports = () => {
       let selected = window.getSelection();
       let selectedString = selected.toString();
       let selectedLength = selectedString.length;
-      let { xPosition, yPosition } = getPosition(
-        selected.anchorNode.parentElement
-      );
+      let selectedParentElement = selected.anchorNode.parentElement;
+      let { xPosition, yPosition } = getPosition(selectedParentElement);
 
       if (selectedLength < 1) {
         cplElement.style.top = 0;
@@ -121,24 +120,29 @@ module.exports = () => {
 
   function getPosition(element) {
     // Create some variables that will be mutated (reassigned)
-    let xPosition = 0;
-    let yPosition = 0;
 
-    // Now we need to walk up the DOM and sum all the spacing
-    // responsible for effecting the positioning of our selected element
+    if (!element) {
+      return;
+    } else {
+      let xPosition = 0;
+      let yPosition = 0;
 
-    // while (element.tagName != "BODY") {
+      // Now we need to walk up the DOM and sum all the spacing
+      // responsible for effecting the positioning of our selected element
 
-    while (element) {
-      xPosition += element.offsetLeft + element.clientLeft;
-      yPosition += element.offsetTop + element.clientTop;
+      // while (element.tagName != "BODY") {
 
-      //console.log(element.tagName);
-      element = element.offsetParent;
-      //console.log(element.tagName);
+      while (element) {
+        xPosition += element.offsetLeft + element.clientLeft;
+        yPosition += element.offsetTop + element.clientTop;
+
+        //console.log(element.tagName);
+        element = element.offsetParent;
+        //console.log(element.tagName);
+      }
+
+      return { xPosition, yPosition };
     }
-
-    return { xPosition, yPosition };
   }
 
   // <p class="cpl__box">CPL = ${selectedLength || ''}</p>

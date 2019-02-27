@@ -1,6 +1,6 @@
 {
   "name": "rdmkit-cpl",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "CPL counts and displays the number of characters selected when you click and drag to select text in the browser. If you are into web typography, use this to calculate the characters-per-line easily.",
   "main": "dist/index.js",
   "scripts": {
