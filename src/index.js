@@ -66,7 +66,7 @@ module.exports = () => {
   // if (!body) {
   //   return;
   // } else {
-  document.body.appendChild(cplElement);
+  body.appendChild(cplElement);
   // }
 
   // Set up a listener to listen for the "selectionchange" event
