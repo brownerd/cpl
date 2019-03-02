@@ -17,8 +17,8 @@ module.exports = () => {
     padding: "10px 20px",
     position: "absolute",
     transition: "all .05s ease-in",
-    top: 0,
-    left: 0,
+    top: -100,
+    left: -100,
     opacity: 0,
     willChange: "top, left, opacity"
   };
@@ -83,8 +83,8 @@ module.exports = () => {
       let { xPosition, yPosition } = getPosition(selectedParentElement);
 
       if (selectedLength < 1) {
-        cplElement.style.top = 0;
-        cplElement.style.left = 0;
+        cplElement.style.top = -100;
+        cplElement.style.left = -100;
         cplElement.style.opacity = 0;
         return;
       }
