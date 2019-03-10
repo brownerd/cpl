@@ -80,7 +80,11 @@ module.exports = () => {
       let selectedString = selected.toString();
       let selectedLength = selectedString.length;
       let selectedParentElement = selected.anchorNode.parentElement;
-      let { xPosition, yPosition } = getPosition(selectedParentElement);
+      if (selectedParentElement) {
+        var { xPosition, yPosition } = getPosition(selectedParentElement);
+      } else {
+        return;
+      }
 
       if (selectedLength < 1) {
         cplElement.style.top = -100;
