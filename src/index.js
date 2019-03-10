@@ -17,8 +17,8 @@ module.exports = () => {
     padding: "10px 20px",
     position: "absolute",
     transition: "all .05s ease-in",
-    top: -100,
-    left: -100,
+    top: "-100px",
+    left: "-100px",
     opacity: 0,
     willChange: "top, left, opacity"
   };
