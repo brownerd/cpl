@@ -79,18 +79,19 @@ module.exports = () => {
       let selected = window.getSelection();
       let selectedString = selected.toString();
       let selectedLength = selectedString.length;
-      let selectedParentElement = selected.anchorNode.parentElement;
-      if (selectedParentElement) {
-        var { xPosition, yPosition } = getPosition(selectedParentElement);
+      // console.log(selected.anchorNode);
+      // console.log(selected.anchorNode.parentElement);
+      // let selectedParentElement = selected.anchorNode.parentElement;
+      if (selected.anchorNode === null) {
+        cplPositionReset(cplElement);
       } else {
-        return;
+        var { xPosition, yPosition } = getPosition(
+          selected.anchorNode.parentElement
+        );
       }
 
       if (selectedLength < 1) {
-        cplElement.style.top = -100;
-        cplElement.style.left = -100;
-        cplElement.style.opacity = 0;
-        return;
+        cplPositionReset(cplElement);
       }
 
       //selectedElement.innerHTML = cpl;
@@ -103,6 +104,13 @@ module.exports = () => {
       // console.log(x, y);
     })
   );
+
+  function cplPositionReset(el) {
+    el.style.top = "-100px";
+    el.style.left = "-100px";
+    el.style.opacity = 0;
+    return;
+  }
 
   // Lets debounce the MouseSelect on every character selected
   // No need to display a number until the user has stopped selecting characters
