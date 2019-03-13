@@ -76,26 +76,28 @@ module.exports = () => {
   document.addEventListener(
     "selectionchange",
     debounce(() => {
+      // Get selected text
       let selected = window.getSelection();
+      // Turn selection result into string
       let selectedString = selected.toString();
+      // Get lenght of selection string
       let selectedLength = selectedString.length;
-      // console.log(selected.anchorNode);
-      // console.log(selected.anchorNode.parentElement);
-      // let selectedParentElement = selected.anchorNode.parentElement;
-      if (selected.anchorNode === null) {
+
+      // Check if selected.anchorNode is Null
+      // Or if selectedLength is 0
+      if (selected.anchorNode === null || selectedLength === 0) {
+        // if null or 0, reset CPL div offscreen
         cplPositionReset(cplElement);
       } else {
+        // else get the x and y position
         var { xPosition, yPosition } = getPosition(
           selected.anchorNode.parentElement
         );
       }
 
-      if (selectedLength < 1) {
-        cplPositionReset(cplElement);
-      }
-
-      //selectedElement.innerHTML = cpl;
+      // Set textContent to slectedLength
       cplElement.textContent = `CPL: ${selectedLength}`;
+      // Update CPL box position
       cplElement.style.top = yPosition - cplElement.offsetHeight + "px";
       cplElement.style.left = xPosition + "px";
       cplElement.style.opacity = 1;
@@ -105,6 +107,7 @@ module.exports = () => {
     })
   );
 
+  // Function for resting the CPL box off screen
   function cplPositionReset(el) {
     el.style.top = "-100px";
     el.style.left = "-100px";
